@@ -1,0 +1,35 @@
+.widget {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  width: 25%;
+  height: auto;
+  border: 3px solid green;
+}
+.widget-header {
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: 3px solid brown;
+}
+.widget-form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: 3px solid blueviolet;
+}
+.num {
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: 3px solid blue;
+}
+.widget-footer {
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: 3px solid red;
+}

@@ -3,8 +3,9 @@ const app = express();
 
 const port = 3000;
 
+app.use(express.static("public"));
+
 app.get("/", function (request, response) {
-  console.log(__dirname + "./html/index.html");
   response.sendFile(__dirname + "/public/html/index.html");
 });
 
