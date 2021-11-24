@@ -1,35 +1,122 @@
-.widget {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  width: 25%;
-  height: auto;
-  border: 3px solid green;
+/* CSS Reset Settings: */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
 }
-.widget-header {
-  width: auto;
-  height: auto;
-  margin: auto;
-  border: 3px solid brown;
+/*Viewport Settings: */
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
-.widget-form {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  width: auto;
-  height: auto;
-  margin: auto;
-  border: 3px solid blueviolet;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  main {
+    border: none;
+    background-color: cyan;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .widget {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+  }
+  .calc-form {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 1px;
+    margin: auto;
+  }
+  .calc-display {
+    grid-column: 1 / span 4;
+    background: #f3f4ed;
+    border: 1px solid #000000;
+    padding: 1rem;
+    font-size: 3rem;
+    text-align: end;
+  }
+  .calc-display::placeholder {
+    color: #000000;
+  }
+  .calc-btn {
+    border: 1px solid #000000;
+    background: #f3f4ed;
+    cursor: pointer;
+  }
+  .calc-btn:hover {
+    filter: brightness(85%);
+  }
+  .calc-number {
+    background-color: #536162;
+    color: #ffffff;
+    font-size: larger;
+  }
+  .calc-operator {
+    background-color: #ff7800;
+    color: #ffffff;
+    font-size: larger;
+  }
+
+  .calc-submit {
+    grid-column: span 2;
+    background-color: #ff7800;
+    color: #ffffff;
+    font-size: larger;
+  }
 }
-.num {
-  width: auto;
-  height: auto;
-  margin: auto;
-  border: 3px solid blue;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  main {
+    border: none;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .widget {
+    width: 300px;
+    height: 400px;
+    background-color: green;
+  }
 }
-.widget-footer {
-  width: auto;
-  height: auto;
-  margin: auto;
-  border: 3px solid red;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  main {
+    border: none;
+    background-color: peru;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .widget {
+    width: 400px;
+    height: 500px;
+    background-color: green;
+  }
 }
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  main {
+    border: none;
+    background-color: darkgreen;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  main {
+    border: none;
+    background-color: mediumpurple;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+/* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: repeat(10, 10%); */

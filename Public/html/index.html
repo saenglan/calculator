@@ -9,55 +9,92 @@
   </head>
   <body id="f485da57-1240-451b-83bc-2b9121f5a7bf">
     <main id="4b46a4b6-7a5b-479b-96c3-8c4dd046eefe">
-      <section id="" class="widget" title="Calculator">
-        <header id="2af54a90-aee9-461b-8125-572ab34f48be" class="widget-header">
-          <h1 id="69f726ea-9dfe-4a80-aaf8-6251ac1f589f" class="title">
-            Calculator
-          </h1>
-        </header>
+      <aside id="8b3b069d-f5e6-49dd-b31f-eeb31de461de" class="widget">
         <form
           id="0e6f9293-56f5-4610-9cf2-d1935c249254"
           name="calculatorForm"
-          class="widget-form"
+          class="calc-form"
           action="/"
           method="post"
         >
-          <div><input type="text" /></div>
-          <div>
-            <input type="button" name="btnClear" value="CLR" class="spec" />
-            <input type="button" name="btnPosNeg" value="-/+" class="spec" />
-            <input type="button" name="btnPercent" value="%" class="spec" />
-            <input type="button" name="btnDivide" value="/" class="oper" />
-          </div>
-          <div>
-            <input type="button" name="btnSeven" value="7" class="num" />
-            <input type="button" name="btnEight" value="8" class="num" />
-            <input type="button" name="btnNine" value="9" class="num" />
-            <input type="button" name="btnMultiply" value="*" class="oper" />
-          </div>
+          <input
+            type="text"
+            name="calculatorDisplay"
+            class="calc-display"
+            placeholder="0"
+          />
 
-          <div>
-            <input type="button" name="btnFour" value="4" class="num" />
-            <input type="button" name="btnFive" value="5" class="num" />
-            <input type="button" name="btnSix" value="6" class="num" />
-            <input type="button" name="btnMinus" value="-" class="oper" />
-          </div>
-          <div>
-            <input type="button" name="btnOne" value="1" class="num" />
-            <input type="button" name="btnTwo" value="2" class="num" />
-            <input type="button" name="btnThree" value="3" class="num" />
-            <input type="button" name="btnAdd" value="+" class="oper" />
-          </div>
-          <div>
-            <input type="button" name="btnZero" value="0" class="num" />
-            <input type="button" name="btnDecimal" value="." class="oper" />
-            <button type="submit">=</button>
-          </div>
+          <button type="button" name="btnClear" class="calc-btn calc-special">
+            CLR
+          </button>
+          <button type="button" name="btnPosNeg" class="calc-btn calc-special">
+            -/+
+          </button>
+          <button type="button" name="btnPercent" class="calc-btn calc-special">
+            %
+          </button>
+          <button type="button" name="btnDivide" class="calc-btn calc-operator">
+            /
+          </button>
+
+          <button type="button" name="btnSeven" class="calc-btn calc-number">
+            7
+          </button>
+          <button type="button" name="btnEight" class="calc-btn calc-number">
+            8
+          </button>
+          <button type="button" name="btnNine" class="calc-btn calc-number">
+            9
+          </button>
+          <button
+            type="button"
+            name="btnMultiply"
+            class="calc-btn calc-operator"
+          >
+            X
+          </button>
+
+          <button type="button" name="btnFour" class="calc-btn calc-number">
+            4
+          </button>
+          <button type="button" name="btnFive" class="calc-btn calc-number">
+            5
+          </button>
+          <button type="button" name="btnSix" class="calc-btn calc-number">
+            6
+          </button>
+          <button
+            type="button"
+            name="btnSubtract"
+            class="calc-btn calc-operator"
+          >
+            —
+          </button>
+
+          <button type="button" name="btnOne" class="calc-btn calc-number">
+            1
+          </button>
+          <button type="button" name="btnTwo" class="calc-btn calc-number">
+            2
+          </button>
+          <button type="button" name="btnThree" class="calc-btn calc-number">
+            3
+          </button>
+          <button type="button" name="btnAdd" class="calc-btn calc-operator">
+            +
+          </button>
+
+          <button type="button" name="btnZero" class="calc-btn calc-number">
+            0
+          </button>
+          <button type="button" name="btnDecimal" class="calc-btn calc-number">
+            .
+          </button>
+          <button type="submit" name="btnEqual" class="calc-btn calc-submit">
+            =
+          </button>
         </form>
-        <footer id="c54a77fb-78d1-4b93-b442-e21a0653351f" class="widget-footer">
-          <h3>Some Content Here</h3>
-        </footer>
-      </section>
+      </aside>
     </main>
   </body>
 </html>
