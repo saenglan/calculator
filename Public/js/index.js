@@ -13,9 +13,19 @@ const displayId = document.querySelector(".calc-display").id;
 //Get display value
 let display = document.getElementById(displayId);
 
+//Get array of number butons
+const numArray = Array.from(document.querySelectorAll(".calc-number"));
+for (let i = 0; i < numArray.length; i++) {
+  numArray[i].addEventListener("click", function (event) {
+    const id = event.target.id;
+    const btn = document.getElementById(id);
+    addToNumber(btn.value);
+  });
+}
+
 //Add event listener to number buttons
 function addToNumber(b) {
-  num1 = num1 + b.value;
+  num1 = num1 + b;
   display.value = Number(num1);
   console.log(display.value);
 }
