@@ -57,12 +57,12 @@ body {
   .calc-display::placeholder {
     color: #ffffff;
   }
-  .calc-btn {
+  .btn {
     border: 1px solid #000000;
     background: #f3f4ed;
     cursor: pointer;
   }
-  .calc-btn:hover {
+  .btn:hover {
     filter: brightness(85%);
   }
   .calc-number {
