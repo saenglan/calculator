@@ -25,10 +25,25 @@ let percent = document.getElementById(percentId);
 percent.addEventListener("click", function () {
   //Allows user to use what is currently on the display in their next query
   if (isDisplayClear) {
-    addToNumber("/100");
+    totalStr + "*(-1)";
   } else {
     displayTotalStr = totalStr;
-    addToNumber("/100");
+    totalStr + "*(-1)";
+    isDisplayClear = true;
+  }
+});
+
+//Get -/+ element
+const negPosId = document.querySelector(".calc-negPos").id;
+//Add event listener to -/+ button
+let negPos = document.getElementById(negPosId);
+negPos.addEventListener("click", function () {
+  //Allows user to use what is currently on the display in their next query
+  if (isDisplayClear) {
+    addToNumber("*(-1)");
+  } else {
+    displayTotalStr = totalStr;
+    addToNumber("*(-1)");
     isDisplayClear = true;
   }
 });
@@ -98,14 +113,12 @@ function addToNumber(num) {
   }
   displayTotalStr = displayTotalStr + num;
   display.value = displayTotalStr;
-  console.log(displayTotalStr);
 }
 function checkClicks() {
   // After each click, the function checks if the click was a single or double after a delay of 300ms.
   // This gives the user 300ms to click the button again. If clicked again, the first click will result in a "single-click",
   // but the second click will result in a "double-click" because 300ms was enough time to update clearCount to 2
   clearCount++;
-  console.log(clearCount);
   if (clearCount === 1) {
     setTimeout(function () {
       if (clearCount === 1) {
