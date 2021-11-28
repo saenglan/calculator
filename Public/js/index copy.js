@@ -1,56 +1,123 @@
-let num1 = "";
-let operator = " ";
-let num2 = " ";
-let isFirstNum = true;
+let total = "";
+let displayTotal = "";
+isDisplayClear = true;
+clearCount = 0;
 
-let numIds = [];
-let opIds = [];
-let specIds = [];
-const display = document.getElementById("30a4d507-0a1d-4029-afdb-4bdf0acd0bdb");
+//Get display element
+const displayId = document.querySelector(".calc-display").id;
+//Get display value
+let display = document.getElementById(displayId);
 
-const numArray = Array.from(document.querySelectorAll(".calc-number"));
+//Get history element
+const historyId = document.querySelector(".calc-history").id;
+//Get history value
+let history = document.getElementById(historyId);
 
-for (let i = 0; i < numArray.length; i++) {
-  numIds.push(numArray[i].attributes.id.value);
-}
-const opArray = Array.from(document.querySelectorAll(".calc-operator"));
+//Get clear element
+const clearId = document.querySelector(".calc-clear").id;
+//Clear calculator
+document.getElementById(clearId).addEventListener("click", checkClicks);
 
-for (let i = 0; i < opArray.length; i++) {
-  opIds.push(opArray[i].attributes.id.value);
-}
-const specArray = Array.from(document.querySelectorAll(".calc-special"));
-
-for (let i = 0; i < specArray.length; i++) {
-  specIds.push(specArray[i].attributes.id.value);
-}
-
-document.addEventListener("click", function (event) {
-  const id = event.target.id;
-  const btn = document.getElementById(id);
-  if (numIds.includes(id)) {
-    if (isFirstNum === true) {
-      num1 = num1 + btn.value;
-    } else {
-      num2 = num2 + btn.value;
-    }
-  } else if (opIds.includes(id)) {
-    if (isFirstNum === true) {
-      operator = btn.value;
-      isFirstNum = false;
-    } else if (isFirstNum === false) {
-      num1 = "0";
-      operator = "";
-      num2 = "0";
-      isFirstNum = true;
-    }
-  } else if (specIds.includes(id)) {
-  } else {
-  }
-  document;
-
-  console.log(Number(num1));
-  console.log(operator);
-  console.log(Number(num2));
+//Get percent element
+const percentId = document.querySelector(".calc-percent").id;
+//Add event listener to percent button
+let percent = document.getElementById(percentId);
+percent.addEventListener("click", function () {
+  console.log("Percent button clicked");
+  addToNumber("/100");
 });
 
-document.getElementById(display).value = num1 + operator + num2;
+//Get submit element
+const submitId = document.querySelector(".calc-submit").id;
+//Evaluate submitted string with Function()
+document.getElementById(submitId).addEventListener("click", function () {
+  let result = Function("return " + total)();
+  //Checks if user submits number without operand
+  if (total == result) {
+    display.value = result;
+    history.value = result;
+    total = result;
+    isDisplayClear = false; //Prevents users from accidentally appending numbers to their displayed result
+  } else {
+    display.value = result;
+    history.value = total + " = " + result;
+    total = result;
+    isDisplayClear = false; //Prevents users from accidentally appending numbers to their displayed result
+  }
+});
+
+//Get array of number butons
+const numArray = Array.from(document.querySelectorAll(".calc-number"));
+//Add event listeners to number buttons
+for (let i = 0; i < numArray.length; i++) {
+  numArray[i].addEventListener("click", function (event) {
+    const id = event.target.id;
+    const btn = document.getElementById(id);
+    //Clears the display if the user presses a number while the result is displayed
+    if (isDisplayClear) {
+      addToNumber(btn.value);
+    } else {
+      console.log(isDisplayClear);
+      total = "";
+      addToNumber(btn.value);
+      isDisplayClear = true;
+    }
+  });
+}
+
+//Get array of operator butons
+const oprArray = Array.from(document.querySelectorAll(".calc-operator"));
+//Add event listeners to operator buttons
+for (let i = 0; i < oprArray.length; i++) {
+  oprArray[i].addEventListener("click", function (event) {
+    const id = event.target.id;
+    const btn = document.getElementById(id);
+    //Allows user to use what is currently on the display in their next query
+    if (isDisplayClear) {
+      addToNumber(btn.value);
+    } else {
+      isDisplayClear = true;
+      addToNumber(btn.value);
+    }
+  });
+}
+
+//Save number buttons
+function addToNumber(num) {
+  total = total + num;
+  if (num == "/100") {
+    num = "%";
+  } else if (num == "*") {
+    num = " x ";
+  }
+  display.value = total;
+  console.log(total);
+}
+function checkClicks() {
+  // After each click, the function checks if the click was a single or double after a delay of 300ms.
+  // This gives the user 300ms to click the button again. If clicked again, the first click will result in a "single-click",
+  // but the second click will result in a "double-click" because 300ms was enough time to update clearCount to 2
+  clearCount++;
+  console.log(clearCount);
+  if (clearCount === 1) {
+    setTimeout(function () {
+      if (clearCount === 1) {
+        clearCalculator();
+      } else {
+        clearHistory();
+      }
+      clearCount = 0;
+    }, 300);
+  }
+}
+function clearCalculator() {
+  total = "";
+  display.value = total;
+  isDisplayClear = true;
+}
+function clearHistory() {
+  total = "";
+  display.value = total;
+  history.value = total;
+  isDisplayClear = true;
+}

@@ -1,4 +1,5 @@
-let total = "";
+let totalStr = "";
+let displayTotalStr = "";
 isDisplayClear = true;
 clearCount = 0;
 
@@ -15,22 +16,41 @@ let history = document.getElementById(historyId);
 //Get clear element
 const clearId = document.querySelector(".calc-clear").id;
 //Clear calculator
-let clear = document
-  .getElementById(clearId)
-  .addEventListener("click", checkClicks);
+document.getElementById(clearId).addEventListener("click", checkClicks);
+
+//Get percent element
+const percentId = document.querySelector(".calc-percent").id;
+//Add event listener to percent button
+let percent = document.getElementById(percentId);
+percent.addEventListener("click", function () {
+  //Allows user to use what is currently on the display in their next query
+  if (isDisplayClear) {
+    addToNumber("/100");
+  } else {
+    displayTotalStr = totalStr;
+    addToNumber("/100");
+    isDisplayClear = true;
+  }
+});
 
 //Get submit element
 const submitId = document.querySelector(".calc-submit").id;
 //Evaluate submitted string with Function()
-let submit = document
-  .getElementById(submitId)
-  .addEventListener("click", function () {
-    let result = Function("return " + total)();
-    display.value = result;
-    history.value = total + " = " + result;
-    total = result;
+document.getElementById(submitId).addEventListener("click", function () {
+  let result = Function("return " + totalStr)();
+  //Checks if user submits number without operand
+  if (totalStr == result) {
+    display.value = result; //Don't update with displayTotalStr
+    history.value = result; //Don't update with displayTotalStr
+    totalStr = result;
     isDisplayClear = false; //Prevents users from accidentally appending numbers to their displayed result
-  });
+  } else {
+    display.value = result; //Don't update with displayTotalStr
+    history.value = displayTotalStr + " = " + result; //ToDo: change totalStr with displayTotalStr
+    totalStr = result;
+    isDisplayClear = false; //Prevents users from accidentally appending numbers to their displayed result
+  }
+});
 
 //Get array of number butons
 const numArray = Array.from(document.querySelectorAll(".calc-number"));
@@ -43,8 +63,8 @@ for (let i = 0; i < numArray.length; i++) {
     if (isDisplayClear) {
       addToNumber(btn.value);
     } else {
-      console.log(isDisplayClear);
-      total = "";
+      totalStr = "";
+      displayTotalStr = "";
       addToNumber(btn.value);
       isDisplayClear = true;
     }
@@ -69,10 +89,16 @@ for (let i = 0; i < oprArray.length; i++) {
 }
 
 //Save number buttons
-function addToNumber(btn) {
-  total = total + btn;
-  display.value = total;
-  console.log(total);
+function addToNumber(num) {
+  totalStr = totalStr + num;
+  if (num === "/100") {
+    num = "%";
+  } else if (num === "*") {
+    num = " x ";
+  }
+  displayTotalStr = displayTotalStr + num;
+  display.value = displayTotalStr;
+  console.log(displayTotalStr);
 }
 function checkClicks() {
   // After each click, the function checks if the click was a single or double after a delay of 300ms.
@@ -92,13 +118,15 @@ function checkClicks() {
   }
 }
 function clearCalculator() {
-  total = "";
-  display.value = total;
+  totalStr = "";
+  displayTotalStr = "";
+  display.value = displayTotalStr;
   isDisplayClear = true;
 }
 function clearHistory() {
-  total = "";
-  display.value = total;
-  history.value = total;
+  totalStr = "";
+  displayTotalStr = "";
+  display.value = displayTotalStr;
+  history.value = displayTotalStr;
   isDisplayClear = true;
 }
