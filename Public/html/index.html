@@ -10,207 +10,199 @@
   <body id="f485da57-1240-451b-83bc-2b9121f5a7bf">
     <main id="4b46a4b6-7a5b-479b-96c3-8c4dd046eefe">
       <aside id="8b3b069d-f5e6-49dd-b31f-eeb31de461de" class="widget">
-        <form
-          id="0e6f9293-56f5-4610-9cf2-d1935c249254"
-          name="calculatorForm"
-          class="calc-form"
-          action="/"
-          method="post"
+        <!--Do not rename/remove/reuse calc-classes (referenced in index.js)-->
+        <input
+          id="59ccf1f1-3253-4972-a057-dab7ea145744"
+          type="text"
+          name="calculatorHistory"
+          class="calc-history"
+          readonly="true"
+        />
+
+        <input
+          id="30a4d507-0a1d-4029-afdb-4bdf0acd0bdb"
+          type="text"
+          name="calculatorDisplay"
+          class="calc-display"
+          placeholder="0"
+          readonly="true"
+        />
+
+        <button
+          id="aebf034f-8cf5-494d-b0ca-6bab8174f211"
+          type="button"
+          name="btnClear"
+          class="btn calc-special"
+          value="CLR"
         >
-          <!--Do not rename/remove/reuse calc-classes (referenced in index.js)-->
-          <input
-            id="59ccf1f1-3253-4972-a057-dab7ea145744"
-            type="text"
-            name="calculatorHistory"
-            class="calc-history"
-            readonly="true"
-          />
+          CLR
+        </button>
+        <button
+          id="e6d11b58-c408-4aef-8a16-e840f3785cb2"
+          type="button"
+          name="btnPosNeg"
+          class="btn calc-special"
+          value="+/-"
+        >
+          -/+
+        </button>
+        <button
+          id="7d3b11a7-712e-422a-a4ec-f367b5061239"
+          type="button"
+          name="btnPercent"
+          class="btn calc-special"
+          value="%"
+        >
+          %
+        </button>
+        <button
+          id="6b234c4f-8816-4c69-8d55-1ffa8f174a86"
+          type="button"
+          name="btnDivide"
+          class="btn calc-operator"
+          value="/"
+        >
+          /
+        </button>
 
-          <input
-            id="30a4d507-0a1d-4029-afdb-4bdf0acd0bdb"
-            type="text"
-            name="calculatorDisplay"
-            class="calc-display"
-            placeholder="0"
-            readonly="true"
-          />
+        <button
+          id="1d12951d-0dd7-4b79-8f42-220c9990b48b"
+          type="button"
+          name="btnSeven"
+          class="btn calc-number"
+          value="7"
+        >
+          7
+        </button>
+        <button
+          id="0e38a850-00f3-4a62-bcd8-9644dbabcea0"
+          type="button"
+          name="btnEight"
+          class="btn calc-number"
+          value="8"
+        >
+          8
+        </button>
+        <button
+          id="534d8c50-f0ec-41bc-88f9-193d9f9d7d45"
+          type="button"
+          name="btnNine"
+          class="btn calc-number"
+          value="9"
+        >
+          9
+        </button>
+        <button
+          id="1398483c-4eb4-4433-bdb0-5c1228eae582"
+          type="button"
+          name="btnMultiply"
+          class="btn calc-operator"
+          value="*"
+        >
+          X
+        </button>
 
-          <button
-            id="aebf034f-8cf5-494d-b0ca-6bab8174f211"
-            type="button"
-            name="btnClear"
-            class="btn calc-special"
-            value="CLR"
-          >
-            CLR
-          </button>
-          <button
-            id="e6d11b58-c408-4aef-8a16-e840f3785cb2"
-            type="button"
-            name="btnPosNeg"
-            class="btn calc-special"
-            value="+/-"
-          >
-            -/+
-          </button>
-          <button
-            id="7d3b11a7-712e-422a-a4ec-f367b5061239"
-            type="button"
-            name="btnPercent"
-            class="btn calc-special"
-            value="%"
-          >
-            %
-          </button>
-          <button
-            id="6b234c4f-8816-4c69-8d55-1ffa8f174a86"
-            type="button"
-            name="btnDivide"
-            class="btn calc-operator"
-            value="/"
-          >
-            /
-          </button>
+        <button
+          id="fe99c2a6-eadb-46ca-a10d-c5766b523378"
+          type="button"
+          name="btnFour"
+          class="btn calc-number"
+          value="4"
+        >
+          4
+        </button>
+        <button
+          id="28910ad9-6892-426c-b80b-3d2583bb3e01"
+          type="button"
+          name="btnFive"
+          class="btn calc-number"
+          value="5"
+        >
+          5
+        </button>
+        <button
+          id="31468b49-2e11-4f80-a0ca-de20f3263644"
+          type="button"
+          name="btnSix"
+          class="btn calc-number"
+          value="6"
+        >
+          6
+        </button>
+        <button
+          id="c3dfef32-c3b4-4e6d-b4bb-65f1989ddbf6"
+          type="button"
+          name="btnSubtract"
+          class="btn calc-operator"
+          value="-"
+        >
+          —
+        </button>
 
-          <button
-            id="1d12951d-0dd7-4b79-8f42-220c9990b48b"
-            type="button"
-            name="btnSeven"
-            class="btn calc-number"
-            value="7"
-          >
-            7
-          </button>
-          <button
-            id="0e38a850-00f3-4a62-bcd8-9644dbabcea0"
-            type="button"
-            name="btnEight"
-            class="btn calc-number"
-            value="8"
-          >
-            8
-          </button>
-          <button
-            id="534d8c50-f0ec-41bc-88f9-193d9f9d7d45"
-            type="button"
-            name="btnNine"
-            class="btn calc-number"
-            value="9"
-          >
-            9
-          </button>
-          <button
-            id="1398483c-4eb4-4433-bdb0-5c1228eae582"
-            type="button"
-            name="btnMultiply"
-            class="btn calc-operator"
-            value="*"
-          >
-            X
-          </button>
+        <button
+          value="1"
+          id="c50346d2-de1f-419c-98fc-8be39f4594c8"
+          type="button"
+          name="btnOne"
+          class="btn calc-number"
+        >
+          1
+        </button>
+        <button
+          id="872588d4-63d9-49d9-9bd6-729a583f1ff6"
+          type="button"
+          name="btnTwo"
+          class="btn calc-number"
+          value="2"
+        >
+          2
+        </button>
+        <button
+          id="1a9a27a0-6cca-48d2-a37f-8b88e9e79e53"
+          type="button"
+          name="btnThree"
+          class="btn calc-number"
+          value="3"
+        >
+          3
+        </button>
+        <button
+          id="8b59dacf-9551-4c37-8ed5-309807f7de79"
+          type="button"
+          name="btnAdd"
+          class="btn calc-operator"
+          value="+"
+        >
+          +
+        </button>
 
-          <button
-            id="fe99c2a6-eadb-46ca-a10d-c5766b523378"
-            type="button"
-            name="btnFour"
-            class="btn calc-number"
-            value="4"
-          >
-            4
-          </button>
-          <button
-            id="28910ad9-6892-426c-b80b-3d2583bb3e01"
-            type="button"
-            name="btnFive"
-            class="btn calc-number"
-            value="5"
-          >
-            5
-          </button>
-          <button
-            id="31468b49-2e11-4f80-a0ca-de20f3263644"
-            type="button"
-            name="btnSix"
-            class="btn calc-number"
-            value="6"
-          >
-            6
-          </button>
-          <button
-            id="c3dfef32-c3b4-4e6d-b4bb-65f1989ddbf6"
-            type="button"
-            name="btnSubtract"
-            class="btn calc-operator"
-            value="-"
-          >
-            —
-          </button>
-
-          <button
-            value="1"
-            id="c50346d2-de1f-419c-98fc-8be39f4594c8"
-            type="button"
-            name="btnOne"
-            class="btn calc-number"
-          >
-            1
-          </button>
-          <button
-            id="872588d4-63d9-49d9-9bd6-729a583f1ff6"
-            type="button"
-            name="btnTwo"
-            class="btn calc-number"
-            value="2"
-          >
-            2
-          </button>
-          <button
-            id="1a9a27a0-6cca-48d2-a37f-8b88e9e79e53"
-            type="button"
-            name="btnThree"
-            class="btn calc-number"
-            value="3"
-          >
-            3
-          </button>
-          <button
-            id="8b59dacf-9551-4c37-8ed5-309807f7de79"
-            type="button"
-            name="btnAdd"
-            class="btn calc-operator"
-            value="+"
-          >
-            +
-          </button>
-
-          <button
-            id="c280d4f4-5075-4f2e-b797-ed674a791cf1"
-            type="button"
-            name="btnZero"
-            class="btn calc-number calc-zero"
-            value="0"
-          >
-            0
-          </button>
-          <button
-            id="b95b0ff8-a75e-420c-bb63-dd6418317ed6"
-            type="button"
-            name="btnDecimal"
-            class="btn calc-number calc-decimal"
-            value="."
-          >
-            .
-          </button>
-          <button
-            id="54397fc6-7982-4488-868d-fee8b16c18fb"
-            type="submit"
-            name="btnEqual"
-            class="btn calc-submit"
-            value="="
-          >
-            =
-          </button>
-        </form>
+        <button
+          id="c280d4f4-5075-4f2e-b797-ed674a791cf1"
+          type="button"
+          name="btnZero"
+          class="btn calc-number calc-zero"
+          value="0"
+        >
+          0
+        </button>
+        <button
+          id="b95b0ff8-a75e-420c-bb63-dd6418317ed6"
+          type="button"
+          name="btnDecimal"
+          class="btn calc-number calc-decimal"
+          value="."
+        >
+          .
+        </button>
+        <button
+          id="54397fc6-7982-4488-868d-fee8b16c18fb"
+          type="submit"
+          name="btnEqual"
+          class="btn calc-submit"
+          value="="
+        >
+          =
+        </button>
       </aside>
     </main>
     <script src="js\index.js"></script>

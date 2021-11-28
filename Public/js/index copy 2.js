@@ -1,20 +1,12 @@
-let total = "";
+let num1 = "";
+let operator = "";
+let num2 = "";
+let isFirstNum = true;
 
 //Get display element
 const displayId = document.querySelector(".calc-display").id;
 //Get display value
 let display = document.getElementById(displayId);
-
-//Get submit element
-const submitId = document.querySelector(".calc-submit").id;
-//Evaluate string with Function()
-let submit = document
-  .getElementById(submitId)
-  .addEventListener("click", function () {
-    let result = Function("return " + total)();
-    display.value = result;
-    total = result;
-  });
 
 //Get array of number butons
 const numArray = Array.from(document.querySelectorAll(".calc-number"));
@@ -34,13 +26,29 @@ for (let i = 0; i < oprArray.length; i++) {
   oprArray[i].addEventListener("click", function (event) {
     const id = event.target.id;
     const btn = document.getElementById(id);
-    addToNumber(btn.value);
+    if (isFirstNum) {
+      operator = btn.value;
+      isFirstNum = false;
+      console.log(btn.value);
+    } else {
+      //Todo: need to allow users to chain operators
+      isFirstNum = true;
+      num1 = "";
+      operator = "";
+      num2 = "";
+    }
   });
 }
 
 //Save number buttons
 function addToNumber(btn) {
-  total = total + btn;
-  display.value = total;
-  console.log(total);
+  if (isFirstNum) {
+    num1 = num1 + btn;
+    display.value = Number(num1);
+    console.log("Number 1: " + display.value);
+  } else {
+    num2 = num2 + btn;
+    display.value = Number(num2);
+    console.log("Number 2: " + display.value);
+  }
 }
